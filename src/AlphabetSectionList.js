@@ -144,6 +144,8 @@ export default class AlphabetSectionList extends Component {
       ListHeaderComponent: renderHeader,
       renderSectionHeader: renderSectionHeader,
       renderItem: this.props.renderItem,
+      onRefresh: this.props.onRefresh,
+      refreshing: this.props.refreshing,
     });
 
     props.style = void 0;
@@ -192,6 +194,25 @@ AlphabetSectionList.propTypes = {
    */
   renderSectionHeader: PropTypes.func,
 
+
+  /**
+   * A custom element to render for each list item
+   */
+  renderItem: PropTypes.func.isRequired,
+
+
+  /**
+   * If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make
+   * sure to also set the `refreshing` prop correctly.
+   */
+  onRefresh: PropTypes.func,
+
+  /**
+   * Set this true while waiting for new data from a refresh.
+   */
+  refreshing?: PropTypes.bool,
+
+  
   /**
    * Whether to show the section listing or not
    */
