@@ -210,7 +210,7 @@ AlphabetSectionList.propTypes = {
   /**
    * Set this true while waiting for new data from a refresh.
    */
-  refreshing?: PropTypes.bool,
+  refreshing: PropTypes.bool,
 
   
   /**
