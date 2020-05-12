@@ -145,6 +145,7 @@ export default class AlphabetSectionList extends Component {
       renderSectionHeader: renderSectionHeader,
       renderItem: this.props.renderItem,
       onRefresh: this.props.onRefresh,
+      onScrollToIndexFailed: this.props.onScrollToIndexFailed,
       refreshing: this.props.refreshing,
     });
 
@@ -206,6 +207,15 @@ AlphabetSectionList.propTypes = {
    * sure to also set the `refreshing` prop correctly.
    */
   onRefresh: PropTypes.func,
+
+
+  /**
+   * Used to handle failures when scrolling to an index that has not been measured yet.
+   * Recommended action is to either compute your own offset and `scrollTo` it, or scroll as far
+   * as possible and then try again after more items have been rendered.
+   */
+  onScrollToIndexFailed?: PropTypes.func,
+
 
   /**
    * Set this true while waiting for new data from a refresh.
