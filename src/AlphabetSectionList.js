@@ -145,6 +145,7 @@ export default class AlphabetSectionList extends Component {
       renderSectionHeader: renderSectionHeader,
       renderItem: this.props.renderItem,
       onRefresh: this.props.onRefresh,
+      getItemLayout: this.props.getItemLayout,
       onScrollToIndexFailed: this.props.onScrollToIndexFailed,
       refreshing: this.props.refreshing,
     });
@@ -194,6 +195,19 @@ AlphabetSectionList.propTypes = {
    * A custom element to render for each list section
    */
   renderSectionHeader: PropTypes.func,
+
+
+  /**
+  * `getItemLayout` is an optional optimization that lets us skip measurement of dynamic
+  * content if you know the height of items a priori. getItemLayout is the most efficient,
+  * and is easy to use if you have fixed height items, for example:
+  * ```
+  * getItemLayout={(data, index) => (
+  *   {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+  * )}
+  * ```
+  */
+  getItemLayout?: PropTypes.func,
 
 
   /**
